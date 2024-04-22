@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TitleBar = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
-            this.MinimiseBtn = new System.Windows.Forms.Button();
-            this.CloseBtn = new System.Windows.Forms.Button();
             this.Code = new System.Windows.Forms.TextBox();
             this.MbNo = new System.Windows.Forms.TextBox();
-            this.GO = new System.Windows.Forms.Button();
-            this.Mode = new System.Windows.Forms.ComboBox();
             this.MsgEnabled = new System.Windows.Forms.CheckBox();
-            this.MsgBox = new System.Windows.Forms.RichTextBox();
+            this.MsgBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Mode = new WhatsApp_Direct.CustomControls_ModernDropDown();
+            this.MinimiseBtn = new WhatsApp_Direct.CustomControls_ModernButton();
+            this.CloseBtn = new WhatsApp_Direct.CustomControls_ModernButton();
+            this.GO = new WhatsApp_Direct.CustomControls_ModernButton();
             this.TitleBar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,34 +71,6 @@
             this.Title.TabIndex = 2;
             this.Title.Text = "WhatsApp Direct";
             this.Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Title_MouseDown);
-            // 
-            // MinimiseBtn
-            // 
-            this.MinimiseBtn.BackColor = System.Drawing.Color.Gold;
-            this.MinimiseBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinimiseBtn.FlatAppearance.BorderSize = 0;
-            this.MinimiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimiseBtn.ForeColor = System.Drawing.Color.White;
-            this.MinimiseBtn.Location = new System.Drawing.Point(179, 0);
-            this.MinimiseBtn.Name = "MinimiseBtn";
-            this.MinimiseBtn.Size = new System.Drawing.Size(45, 15);
-            this.MinimiseBtn.TabIndex = 1;
-            this.MinimiseBtn.UseVisualStyleBackColor = false;
-            this.MinimiseBtn.Click += new System.EventHandler(this.MinimiseBtn_Click);
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBtn.FlatAppearance.BorderSize = 0;
-            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.Location = new System.Drawing.Point(224, 0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(45, 15);
-            this.CloseBtn.TabIndex = 0;
-            this.CloseBtn.UseVisualStyleBackColor = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // Code
             // 
@@ -132,39 +104,6 @@
             this.MbNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MbNo_KeyDown);
             this.MbNo.Leave += new System.EventHandler(this.MbNo_Leave);
             // 
-            // GO
-            // 
-            this.GO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GO.BackgroundImage = global::WhatsApp_Direct.Properties.Resources.External_Link;
-            this.GO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.GO.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.GO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GO.ForeColor = System.Drawing.Color.White;
-            this.GO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.GO.Location = new System.Drawing.Point(0, 138);
-            this.GO.Name = "GO";
-            this.GO.Size = new System.Drawing.Size(271, 41);
-            this.GO.TabIndex = 3;
-            this.GO.UseVisualStyleBackColor = false;
-            this.GO.Click += new System.EventHandler(this.GO_Click);
-            // 
-            // Mode
-            // 
-            this.Mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Mode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mode.ForeColor = System.Drawing.Color.White;
-            this.Mode.FormattingEnabled = true;
-            this.Mode.Items.AddRange(new object[] {
-            "WhatsApp Desktop",
-            "WhatsApp Web"});
-            this.Mode.Location = new System.Drawing.Point(12, 55);
-            this.Mode.Name = "Mode";
-            this.Mode.Size = new System.Drawing.Size(252, 33);
-            this.Mode.TabIndex = 4;
-            this.Mode.SelectedIndexChanged += new System.EventHandler(this.Mode_SelectedIndexChanged);
-            // 
             // MsgEnabled
             // 
             this.MsgEnabled.AutoSize = true;
@@ -185,21 +124,21 @@
             this.MsgBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MsgBox.ForeColor = System.Drawing.Color.White;
             this.MsgBox.Location = new System.Drawing.Point(3, 18);
+            this.MsgBox.Multiline = true;
             this.MsgBox.Name = "MsgBox";
-            this.MsgBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.MsgBox.Size = new System.Drawing.Size(289, 100);
+            this.MsgBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.MsgBox.Size = new System.Drawing.Size(265, 154);
             this.MsgBox.TabIndex = 8;
-            this.MsgBox.Text = "";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.MsgBox);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(-24, 17);
+            this.groupBox1.Location = new System.Drawing.Point(0, -36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 121);
+            this.groupBox1.Size = new System.Drawing.Size(271, 175);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Message";
@@ -210,7 +149,7 @@
             this.groupBox2.Controls.Add(this.MsgEnabled);
             this.groupBox2.Controls.Add(this.Code);
             this.groupBox2.Controls.Add(this.Mode);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(0, 17);
             this.groupBox2.Name = "groupBox2";
@@ -218,15 +157,101 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             // 
+            // Mode
+            // 
+            this.Mode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Mode.BorderColor = System.Drawing.Color.White;
+            this.Mode.BorderSize = 1;
+            this.Mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.Mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mode.ForeColor = System.Drawing.Color.White;
+            this.Mode.IconColor = System.Drawing.Color.White;
+            this.Mode.Items.AddRange(new object[] {
+            "WhatsApp Desktop",
+            "WhatsApp Web"});
+            this.Mode.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Mode.ListTextColor = System.Drawing.Color.White;
+            this.Mode.Location = new System.Drawing.Point(12, 55);
+            this.Mode.MinimumSize = new System.Drawing.Size(200, 30);
+            this.Mode.Name = "Mode";
+            this.Mode.Padding = new System.Windows.Forms.Padding(1);
+            this.Mode.Size = new System.Drawing.Size(252, 33);
+            this.Mode.TabIndex = 4;
+            this.Mode.Texts = "Select Mode";
+            this.Mode.OnSelectedIndexChanged += new System.EventHandler(this.Mode_SelectedIndexChanged);
+            // 
+            // MinimiseBtn
+            // 
+            this.MinimiseBtn.BackColor = System.Drawing.Color.Gold;
+            this.MinimiseBtn.BackgroundColor = System.Drawing.Color.Gold;
+            this.MinimiseBtn.BorderColor = System.Drawing.Color.Gold;
+            this.MinimiseBtn.BorderRadius = 5;
+            this.MinimiseBtn.BorderSize = 1;
+            this.MinimiseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.MinimiseBtn.FlatAppearance.BorderSize = 0;
+            this.MinimiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimiseBtn.ForeColor = System.Drawing.Color.White;
+            this.MinimiseBtn.Location = new System.Drawing.Point(179, 0);
+            this.MinimiseBtn.Name = "MinimiseBtn";
+            this.MinimiseBtn.Size = new System.Drawing.Size(45, 15);
+            this.MinimiseBtn.TabIndex = 1;
+            this.MinimiseBtn.TextColor = System.Drawing.Color.White;
+            this.MinimiseBtn.UseVisualStyleBackColor = false;
+            this.MinimiseBtn.Click += new System.EventHandler(this.MinimiseBtn_Click);
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.CloseBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.CloseBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.CloseBtn.BorderRadius = 5;
+            this.CloseBtn.BorderSize = 1;
+            this.CloseBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseBtn.FlatAppearance.BorderSize = 0;
+            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.Location = new System.Drawing.Point(224, 0);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(45, 15);
+            this.CloseBtn.TabIndex = 0;
+            this.CloseBtn.TextColor = System.Drawing.Color.White;
+            this.CloseBtn.UseVisualStyleBackColor = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // GO
+            // 
+            this.GO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.GO.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.GO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.GO.BorderColor = System.Drawing.Color.Gray;
+            this.GO.BorderRadius = 5;
+            this.GO.BorderSize = 1;
+            this.GO.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.GO.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.GO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GO.ForeColor = System.Drawing.Color.White;
+            this.GO.Image = global::WhatsApp_Direct.Properties.Resources.External_Link;
+            this.GO.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GO.Location = new System.Drawing.Point(0, 139);
+            this.GO.Name = "GO";
+            this.GO.Size = new System.Drawing.Size(271, 41);
+            this.GO.TabIndex = 3;
+            this.GO.Text = "Launch Whatsapp";
+            this.GO.TextColor = System.Drawing.Color.White;
+            this.GO.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.GO.UseVisualStyleBackColor = false;
+            this.GO.Click += new System.EventHandler(this.GO_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(271, 179);
+            this.ClientSize = new System.Drawing.Size(271, 180);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TitleBar);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GO);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -237,6 +262,7 @@
             this.TitleBar.ResumeLayout(false);
             this.TitleBar.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -246,15 +272,15 @@
         #endregion
 
         private System.Windows.Forms.Panel TitleBar;
-        private System.Windows.Forms.Button MinimiseBtn;
-        private System.Windows.Forms.Button CloseBtn;
+        private CustomControls_ModernButton MinimiseBtn;
+        private CustomControls_ModernButton CloseBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.TextBox Code;
         private System.Windows.Forms.TextBox MbNo;
-        private System.Windows.Forms.Button GO;
-        private System.Windows.Forms.ComboBox Mode;
+        private CustomControls_ModernButton GO;
+        private CustomControls_ModernDropDown Mode;
         private System.Windows.Forms.CheckBox MsgEnabled;
-        private System.Windows.Forms.RichTextBox MsgBox;
+        private System.Windows.Forms.TextBox MsgBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
     }

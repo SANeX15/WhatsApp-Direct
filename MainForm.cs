@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Web;
 
 namespace WhatsApp_Direct
 {
@@ -54,17 +55,18 @@ namespace WhatsApp_Direct
         {
             if(e.KeyCode == Keys.Enter)
             {
-                WAGO();
+                Call();
             }
         }
 
         private void GO_Click(object sender, EventArgs e)
         {
-            WAGO();
+            Call();
         }
-        private void WAGO()
+        private void Call()
         {
             WASend.CallWA(Mode.SelectedIndex, Code.Text, MbNo.Text, MsgEnabled.Enabled, MsgBox.Text);
+            
         }
         private void Mode_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -81,12 +83,12 @@ namespace WhatsApp_Direct
             switch (MsgEnabled.Checked)
             {
                 case true:
-                    this.Width = 572;
+                    this.Height = 360;
                     MsgBox.Enabled = true;
                     groupBox2.Text = "Direct";
                     break;
                 case false:
-                    this.Width = 271;
+                    this.Height = 180;
                     MsgBox.Enabled = false;
                     groupBox2.Text = string.Empty;
                     break;

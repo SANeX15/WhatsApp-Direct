@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace WhatsApp_Direct
 {
@@ -18,10 +19,10 @@ namespace WhatsApp_Direct
                     switch (mode)
                     {
                         case 0:
-                            Process.Start("whatsapp://send?phone=" + code + MbNo + "&text=" + message);
+                            Process.Start("whatsapp://send?phone=" + code + MbNo + "&text=" + TTU(message));
                             break;
                         case 1:
-                            Process.Start("http://api.whatsapp.com/send/?phone=" + code + MbNo + "&text=" + message);
+                            Process.Start("http://api.whatsapp.com/send/?phone=" + code + MbNo + "&text=" + TTU(message));
                             break;
                     }
                     break;
@@ -37,6 +38,11 @@ namespace WhatsApp_Direct
                     }
                     break;
             }
+        }
+
+        private static string TTU(string url)
+        {
+            return HttpUtility.UrlEncode(url);
         }
     }
 }
