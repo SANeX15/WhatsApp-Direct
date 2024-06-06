@@ -10,29 +10,29 @@ namespace WhatsApp_Direct
 {
     internal class WASend
     {
-        public static void CallWA(int mode,string code, string MbNo, bool msgEnabled, string message)
+        public static void CallWA(bool webMode,string code, string MbNo, bool msgEnabled, string message)
         {
             
             switch (msgEnabled)
             {
                 case true:
-                    switch (mode)
+                    switch (webMode)
                     {
-                        case 0:
+                        case false:
                             Process.Start("whatsapp://send?phone=" + code + MbNo + "&text=" + TTU(message));
                             break;
-                        case 1:
+                        case true:
                             Process.Start("http://api.whatsapp.com/send/?phone=" + code + MbNo + "&text=" + TTU(message));
                             break;
                     }
                     break;
                 case false:
-                    switch (mode)
+                    switch (webMode)
                     {
-                        case 0:
+                        case false:
                             Process.Start("whatsapp://send?phone=" + code + MbNo);
                             break;
-                        case 1:
+                        case true:
                             Process.Start("http://api.whatsapp.com/send/?phone=" + code + MbNo);
                             break;
                     }

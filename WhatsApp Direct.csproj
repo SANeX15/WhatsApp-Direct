@@ -22,7 +22,11 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>Whatsapp Direct</ProductName>
+    <PublisherName>SANeX</PublisherName>
+    <SuiteName>SANeX Tools</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -132,6 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\External Link.png" />
+    <None Include="Resources\web.png" />
+    <None Include="Resources\desktop.png" />
+    <Content Include="Resources\message off.png" />
+    <Content Include="Resources\message on.png" />
     <Content Include="WhatsApp Direct.ico" />
   </ItemGroup>
   <ItemGroup>

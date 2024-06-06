@@ -36,7 +36,7 @@ namespace WhatsApp_Direct
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Mode.SelectedIndex = Properties.Settings.Default.Mode;
+            Mode.Checked = Properties.Settings.Default.WebMode;
             MsgEnabled.Checked = Properties.Settings.Default.MsgEnabled;
         }
 
@@ -63,43 +63,16 @@ namespace WhatsApp_Direct
         {
             Call();
         }
+
         private void Call()
         {
-            WASend.CallWA(Mode.SelectedIndex, Code.Text, MbNo.Text, MsgEnabled.Enabled, MsgBox.Text);
-            
+            WASend.CallWA(Mode.Checked, Code.Text, MbNo.Text, MsgEnabled.Enabled, MsgBox.Text);
         }
-        private void Mode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Mode = Mode.SelectedIndex;
-            Properties.Settings.Default.Save();
-        }
+
         private void Title_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-        private void MsgBoxEnabled()
-        {
-            switch (MsgEnabled.Checked)
-            {
-                case true:
-                    this.Height = 360;
-                    MsgBox.Enabled = true;
-                    groupBox2.Text = "Direct";
-                    break;
-                case false:
-                    this.Height = 180;
-                    MsgBox.Enabled = false;
-                    groupBox2.Text = string.Empty;
-                    break;
-            }
-            Properties.Settings.Default.MsgEnabled = MsgEnabled.Checked;
-            Properties.Settings.Default.Save();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            MsgBoxEnabled();
         }
 
         private void MbNo_Leave(object sender, EventArgs e)
@@ -118,6 +91,42 @@ namespace WhatsApp_Direct
                 MbNo.Text = string.Empty;
                 MbNo.ForeColor = Color.White;
             }
+        }
+
+        private void msgEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (MsgEnabled.Checked)
+            {
+                case true:
+                    this.Height = 240;
+                    MsgBox.Enabled = true;
+                    groupBox2.Text = "Direct";
+                    MsgEnabled.ImageIndex = 1;
+                    break;
+                case false:
+                    this.Height = 110;
+                    MsgBox.Enabled = false;
+                    groupBox2.Text = string.Empty;
+                    MsgEnabled.ImageIndex = 0;
+                    break;
+            }
+            Properties.Settings.Default.MsgEnabled = MsgEnabled.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void Mode_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (Mode.Checked)
+            {
+                case true:
+                    Mode.ImageIndex = 1;
+                    break;
+                case false:
+                    Mode.ImageIndex = 0;
+                    break;
+            }
+            Properties.Settings.Default.WebMode = Mode.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }
