@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SANeX;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Web;
+using System.Windows.Forms;
 
 namespace WhatsApp_Direct
 {
@@ -40,17 +34,6 @@ namespace WhatsApp_Direct
             MsgEnabled.Checked = Properties.Settings.Default.MsgEnabled;
         }
 
-        private void MinimiseBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void TitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-
         private void MbNo_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -66,15 +49,10 @@ namespace WhatsApp_Direct
 
         private void Call()
         {
-            WASend.CallWA(Mode.Checked, Code.Text, MbNo.Text, MsgEnabled.Enabled, MsgBox.Text);
+            WASend.CallWA(Mode.Checked, Code.Text, MbNo.Text, MsgEnabled.Checked, MsgBox.Text);
+            Application.Exit();
         }
-
-        private void Title_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-
+        
         private void MbNo_Leave(object sender, EventArgs e)
         {
             if (MbNo.Text.Length == 0)
@@ -98,16 +76,16 @@ namespace WhatsApp_Direct
             switch (MsgEnabled.Checked)
             {
                 case true:
-                    this.Height = 240;
+                    this.Height = 220;
                     MsgBox.Enabled = true;
                     groupBox2.Text = "Direct";
-                    MsgEnabled.ImageIndex = 1;
+                    MsgEnabled.Image = Properties.Resources.message_on;
                     break;
                 case false:
-                    this.Height = 110;
+                    this.Height = 96;
                     MsgBox.Enabled = false;
                     groupBox2.Text = string.Empty;
-                    MsgEnabled.ImageIndex = 0;
+                    MsgEnabled.Image = Properties.Resources.message_off;
                     break;
             }
             Properties.Settings.Default.MsgEnabled = MsgEnabled.Checked;
@@ -119,14 +97,20 @@ namespace WhatsApp_Direct
             switch (Mode.Checked)
             {
                 case true:
-                    Mode.ImageIndex = 1;
+                    Mode.Image = Properties.Resources.web;
                     break;
                 case false:
-                    Mode.ImageIndex = 0;
+                    Mode.Image = Properties.Resources.desktop;
                     break;
             }
             Properties.Settings.Default.WebMode = Mode.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void MoveWindow(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
 }
