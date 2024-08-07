@@ -50,7 +50,7 @@ namespace WhatsApp_Direct
         private void Call()
         {
             WASend.CallWA(Mode.Checked, Code.Text, MbNo.Text, MsgEnabled.Checked, MsgBox.Text);
-            Application.Exit();
+            MbNo.Text = string.Empty;
         }
         
         private void MbNo_Leave(object sender, EventArgs e)
