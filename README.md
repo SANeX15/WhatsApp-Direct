@@ -20,3 +20,5 @@ This application aids in messaging to unsaved contacts with the feature to add a
  - Support for WhatsApp Desktop.
  - Support for WhatsApp Web.
  - Editable Preset Message (**Include Message** checkbox)
+
+IMPORTANT NEWS : I think that WhatsApp Direct has reached its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am halting further development of Whatsapp Direct.
