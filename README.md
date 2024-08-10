@@ -9,8 +9,8 @@ This application aids in messaging to unsaved contacts with the feature to add a
  - Sometimes, the message doesn't input itself in the textbox in WhatsApp Desktop, so you may have to press the send button twice.
 
 ## ScreenShots
-![Normal Mode](https://github.com/SANeX15/WhatsApp-Direct/assets/83059735/25a89528-1a95-4a65-ac02-0397285f0c5f)
-![Message Included](https://github.com/SANeX15/WhatsApp-Direct/assets/83059735/e46d567a-e43c-4640-af74-d9e8c74a5175)
+![Normal Mode](https://github.com/user-attachments/assets/11f04665-c993-4b87-8f2c-5c74896bd44c)
+![Message Included](https://github.com/user-attachments/assets/ef2e8e0c-e0de-448a-82dc-b920d8a3d8c2)
 
 ## Requirements
  - .NET Framework 4.8
@@ -22,3 +22,5 @@ This application aids in messaging to unsaved contacts with the feature to add a
  - Editable Preset Message (**Include Message** checkbox)
 
 IMPORTANT NEWS : I think that WhatsApp Direct has reached its final stage and doesn't require to be updated anymore.So, till _something interesting happens_, I am halting further development of Whatsapp Direct.
+
+_THANK YOU FOR USING MY APPLICATION._
