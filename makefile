@@ -9,7 +9,7 @@ EXECUTABLE = wa_direct
 
 # The build and source directories.
 BUILD_DIR = build
-SRC_DIRS = src src/dlgs src/libs
+SRC_DIRS = src src/dlgs src/libs src/api
 
 # Automatically find all C++ source files in the source directory and its subdirectories.
 SOURCES = $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))

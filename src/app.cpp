@@ -5,9 +5,7 @@ wxIMPLEMENT_APP(WA_D);
 
 bool WA_D::OnInit(){
   SetAppName("WhatsApp Direct");
-  SetAppDisplayName("Whatsapp Direct");
   SetVendorName("SANeX");
-  SetVendorDisplayName("SANeX");
 
   wxConfig::Set(new wxFileConfig(
     GetAppName(),

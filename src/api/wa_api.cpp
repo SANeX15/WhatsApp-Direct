@@ -5,7 +5,7 @@ void WA_D_CALL(const bool mode, const std::string &contact){
     if (mode) {
         url = "whatsapp://send?phone=" + contact;
     } else {
-        url = "http://api.whatsapp.com/send?phone=" + contact;
+        url = "http://web.whatsapp.com/send?phone=" + contact;
     }
     
     #if defined(_WIN32)
