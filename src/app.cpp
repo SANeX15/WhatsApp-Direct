@@ -1,5 +1,6 @@
 #include "libs/app.hpp"
 #include "libs/mainDlg.hpp"
+#include <wx/fileconf.h>
 
 wxIMPLEMENT_APP(WA_D);
 
