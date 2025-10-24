@@ -6,3 +6,7 @@
 /bin
 /obj
 /publish
+/Release
+/Whatsapp Direct/Release
+/Whatsapp Direct/x64/Debug
+/x64/Debug
