@@ -8,6 +8,10 @@ MainDlg::MainDlg()
     // instantiate config file
     conf = wxConfig::Get();
 
+    wxFont defFont = GetFont();
+    defFont.SetPointSize(12);
+    SetFont(defFont);
+
     // create a number-only validator for mobile number input
     wxTextValidator mobVal(wxFILTER_DIGITS);
 
